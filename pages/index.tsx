@@ -10,9 +10,9 @@ const handleSignup = async (data: string) => {
 export default function Home() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(event.currentTarget[0].value);
+    const inputValue = event.currentTarget[0].value;
     try {
-      handleSignup(event.currentTarget[0].value);
+      handleSignup(inputValue);
     } catch (error) {
       console.log(error);
     }

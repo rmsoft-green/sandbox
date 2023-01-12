@@ -12,7 +12,7 @@ export default async function handler(
 ) {
   const user = await client.user.create({
     data: {
-      name: "인수",
+      name: req.body,
     },
   });
   console.log(user);
