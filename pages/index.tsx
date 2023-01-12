@@ -1,6 +1,21 @@
+const handleSignup = async (data: string) => {
+  const response = await fetch(`/api/hello`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+  const json = await response.json();
+  return json;
+};
+
 export default function Home() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    try {
+      const inputValue = event.currentTarget[0].value;
+      handleSignup(inputValue);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
